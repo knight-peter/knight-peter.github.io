@@ -5,13 +5,13 @@ date: 2018-02-04 15:19:35
 
 # 联系方式
 
-* 手机：13754397764
+* 微信号：xuqipeter
 * Email：xuqipeter@qq.com
 * QQ：531835498
 
 # 个人信息
 
-* 徐琪/男/1987
+* 男/1987
 * 本科/绍兴文理学院
 * 工作年限：7 年
 * 个人网站：https://knight-peter.github.io
