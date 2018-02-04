@@ -528,12 +528,12 @@ rating:
   color:  fc6423
 # ---------------------------------------------------------------
 
-# Show number of visitors to each article.
+# Show number of visitors to each article. 阅读次数统计（LeanCloud) 
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: false
-  app_id: #<app_id>
-  app_key: #<app_key>
+  enable: true
+  app_id: htOkx0G8qXjw5f5rMr3ufuSh-9Nh9j0Va #<app_id>
+  app_key: jhu7ClbQ7GdbbucIQWoKD9Hf #<app_key>
 
 # Another tool to show number of visitors to each article.
 # visit https://console.firebase.google.com/u/0/ to get apiKey and projectId

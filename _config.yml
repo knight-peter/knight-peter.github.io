@@ -82,6 +82,12 @@ feed:
   #在 rss 中最多生成的文章数(0显示所有)
   limit: 0
 
+# 自动生成sitemap hexo-generator-baidu-sitemap hexo-generator-sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+
 # 添加百度/谷歌/本地 自定义站点内容搜索 hexo-generator-searchdb
 search:
   path: search.xml
