@@ -82,6 +82,13 @@ feed:
   #在 rss 中最多生成的文章数(0显示所有)
   limit: 0
 
+# 添加百度/谷歌/本地 自定义站点内容搜索 hexo-generator-searchdb
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
 # 更改hexo-server运行时的端口号
 server:
   port: 4001
