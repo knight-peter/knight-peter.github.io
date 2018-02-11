@@ -108,5 +108,6 @@ deploy:
   type: git
   repository: # 可选择同时部署到 GitHub 和 coding 或者只部署到 Github
     github: git@github.com:knight-peter/knight-peter.github.io.git
-    gitee: git@gitee.com:xuqipeter/blog.git
+    # gitee: git@gitee.com:xuqipeter/blog.git
+    coding: git@git.coding.net:xuqipeter/xuqipeter.coding.io.git
   branch: master
