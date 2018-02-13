@@ -155,4 +155,5 @@
   <link rel="canonical" href="{{ config.url }}/{{ page.canonical_path.replace('index.html', '') }}"/>
 {% endif %}
 
+
 {% include 'head/custom-head.swig' %}
