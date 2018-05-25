@@ -60,14 +60,17 @@ npm就自动为我们更新到最新版本
 稍等一会儿，可以看到自动在浏览器中打开了  
 #### 安装PostCSS插件  
 1.	通过`Vue-cli`构建的项目，在项目的根目录下有一个`.postcssrc.js`，默认情况下已经有了：
+
 ```
 module.exports = {
         plugins: {
           autoprefixer: {}
         }
 }
-``` 
+```
+
 配置成
+
 ```
 module.exports = {
         plugins: {
@@ -77,6 +80,7 @@ module.exports = {
         }
 }
 ```
+
 2.	安装`postcss-import`和`postcss-url`插件  
 	*	`$ npm install postcss-import`和`$ npm install postcss-url`
 	*	`postcss-import`相关配置[*点击这里*](http://github.com/postcss/postcss-import "postcss-import的github仓库")。主要功有是解决`@import`引入路径问题。使用这个插件，可以让你很轻易的使用本地文件、`node_modules`或者`web_modules`的文件。这个插件配合`postcss-url`让你引入文件变得更轻松。  
@@ -94,6 +98,7 @@ module.exports = {
 
 要使用  
 安装成功后，在项目根目录下的`package.json`文件中，可以看到新安装的依赖包：
+
 ```javascript
 "dependencies": {
     "cssnano": "^3.10.0",
@@ -109,7 +114,9 @@ module.exports = {
     "vuex": "^3.0.1"
   },
 ```
+
 接下来在`.postcssrc.js`文件对新安装的`PostCSS`插件进行配置：
+
 ```
 module.exports = {
   plugins: {
@@ -152,22 +159,27 @@ module.exports = {
 `cssnano`主要用来压缩和清理`CSS`代码。在`Webpack`中，`cssnano`和`css-loader`捆绑在一起，所以不需要自己加载它。不过你也可以使用`postcss-loader`显式的使用`cssnano`。有关于`cssnano`的详细文档，可以点击这里获取。
 
 在`cssnano`的配置中，使用了`preset: "advanced"`，所以我们需要另外安装：
+
 ```
 npm i cssnano-preset-advanced --save-dev
 ```
+
 `cssnano`集成了一些其他的`PostCSS`插件，如果你想禁用`cssnano`中的某个插件的时候，可以像下面这样操作：
+
 ```
 "cssnano": {
     autoprefixer: false,
     "postcss-zindex": false
 }
 ```
+
 上面的代码把`autoprefixer`和`postcss-zindex`禁掉了。前者是有重复调用，后者是一个讨厌的东东。只要启用了这个插件，`z-index`的值就会重置为1。这是一个天坑，***千万记得将`postcss-zindex`设置为`false`***。
 postcss-px-to-viewport
 
 postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者vmax这样的视窗单位，也是vw适配方案的核心插件之一。
 
 在配置中需要配置相关的几个关键参数：
+
 ```javascript
 "postcss-px-to-viewport": {
     viewportWidth: 750,      // 视窗的宽度，对应的是我们设计稿的宽度，一般是750
@@ -179,7 +191,9 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
     mediaQuery: false       // 允许在媒体查询中转换`px`
 }
 ```
+
 目前出视觉设计稿，我们都是使用`750px`宽度的，那么`100vw = 750px`，即`1vw = 7.5px`。那么我们可以根据设计图上的`px`值直接转换成对应的`vw`值。在实际撸码过程，不需要进行任何的计算，直接在代码中写`px`，比如：
+
 ```
 .test {
     border: .5px solid black;
@@ -205,11 +219,15 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
     width: 25.067vw;
 }
 ```
+
 在不想要把`px`转换为`vw`的时候，首先在对应的元素（`html`）中添加配置中指定的类名`.ignore`或`.hairlines`(`.hairlines`一般用于设置`border-width:0.5px`的元素中)：
+
 ```
 <div class="box ignore"></div>
 ```
+
 写CSS的时候：
+
 ```
 .ignore {
     margin: 10px;
@@ -223,7 +241,9 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
     border-bottom: 0.5px solid red;
 }
 ```
+
 编译出来的CSS:
+
 ```
 .box {
     width: 24vw;
@@ -237,6 +257,7 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
     border-bottom: 0.5px solid red;
 }
 ```
+
 上面解决了`px`到`vw`的转换计算。那么在哪些地方可以使用`vw`来适配我们的页面。根据相关的测试：
 * 容器适配，可以使用vw
 * 文本的适配，可以使用vw
@@ -246,18 +267,23 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
 ##### postcss-aspect-ratio-mini
 
 [`postcss-aspect-ratio-mini`](http://github.com/yisibl/postcss-aspect-ratio-mini)主要用来处理元素容器宽高比。在实际使用的时候，具有一个默认的结构
+
 ```
 <div aspectratio>
     <div aspectratio-content></div>
 </div>
 ```
+
 在实际使用的时候，你可以把自定义属性`aspectratio`和`aspectratio-content`换成相应的类名，比如：
+
 ```
 <div class="aspectratio">
     <div class="aspectratio-content"></div>
 </div>
 ```
+
 我个人比较喜欢用__自定义属性__，它和类名所起的作用是同等的。结构定义之后，需要在你的样式文件中添加一个**统一的宽度比默认属性**：
+
 ```
 [aspectratio] {
     position: relative;
@@ -280,17 +306,23 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
     height: 100%;
 }
 ```
+
 如果我们想要做一个`188:246`（`188`是容器宽度，`246`是容器高度）这样的比例容器，只需要这样使用：
+
 ```
 [w-188-246] {
     aspect-ratio: '188:246';
 }
 ```
+
 有一点需要特别注意：`aspect-ratio`属性不能和其他属性写在一起，否则编译出来的属性只会留下`aspect-ratio`的值，比如：
+
 ```
 <div aspectratio w-188-246 class="color"></div>
 ```
+
 编译前的CSS如下：
+
 ```
 [w-188-246] {
     width: 188px;
@@ -298,13 +330,17 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
     aspect-ratio: '188:246';
 }
 ```
+
 编译之后：
+
 ```
 [w-188-246]:before {
     padding-top: 130.85106382978725%;
 }
 ```
+
 主要是因为在插件中做了相应的处理，不在每次调用`aspect-ratio`时，生成前面指定的默认样式代码，这样代码没那么冗余。所以在使用的时候，需要把`width`和`background-color`分开来写：
+
 ```
 [w-188-246] {
     width: 188px;
@@ -314,7 +350,9 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
     aspect-ratio: '188:246';
 }
 ```
+
 这个时候，编译出来的CSS就正常了：
+
 ```
 [w-188-246] {
     width: 25.067vw;/*撑开宽度*/
@@ -324,6 +362,7 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
     padding-top: 130.85106382978725%;/*撑开高度*/
 }
 ```
+
 有关于宽高比相关的详细介绍，如果大家感兴趣的话，可以阅读下面相关的文章：
 
 * [CSS实现长宽比的几种方案](http://www.w3cplus.com/css/aspect-ratio.html)
@@ -335,6 +374,7 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
 ##### postcss-write-svg
 
 [`postcss-write-svg`](http://github.com/jonathantneal/postcss-write-svg)插件主要用来处理移动端`1px`的解决方案。该插件主要使用的是`border-image`和`background`来做`1px`的相关处理。比如：
+
 ```
 @svg 1px-border {
     height: 2px;
@@ -349,14 +389,18 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
     border-image: svg(1px-border param(--color #00b1ff)) 2 2 stretch;
 }
 ```
+
 编译出来的CSS:
+
 ```
 .example {
     border: 1px solid transparent;
     border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='2px'%3E%3Crect fill='%2300b1ff' width='100%25' height='50%25'/%3E%3C/svg%3E") 2 2 stretch;
 }
 ```
+
 上面演示的是使用`border-image`方式，除此之外还可以使用`background-image`来实现。比如：
+
 ```
 @svg square {
     @rect {
@@ -370,12 +414,15 @@ postcss-px-to-viewport插件主要用来把px单位转换为vw、vh、vmin或者
     background: white svg(square param(--color #00b1ff));
 }
 ```
+
 编译出来就是：
+
 ```
 #example {
     background: white url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%2300b1ff' width='100%25' height='100%25'/%3E%3C/svg%3E");
 }
 ```
+
 解决`1px`的方案除了这个插件之外，还有其他的方法。可以阅读前期整理的《[再谈Retina下`1px`的解决方案](http://www.w3cplus.com/css/fix-1px-for-retina.html)》一文。
 
 > **特别声明**：由于有一些低端机对`border-image`支持度不够友好，个人建议你使用`background-image`的这个方案。
@@ -394,12 +441,15 @@ Vue中的`vue-loader`已经集成了[CSS Modules](http://github.com/css-modules/
 ##### 引入JavaScript文件
 
 `viewport-units-buggyfill`主要有两个JavaScript文件：`viewport-units-buggyfill.js`和`viewport-units-buggyfill.hacks.js`。你只需要在你的HTML文件中引入这两个文件。比如在Vue项目中的`index.html`引入它们：
+
 ```
 <script src="//g.alicdn.com/fdilab/lib3rd/viewport-units-buggyfill/0.6.2/??viewport-units-buggyfill.hacks.min.js,viewport-units-buggyfill.min.js"></script>
 ```
+
 你也可以使用其他的在线CDN地址，也可将这两个文件合并压缩成一个`.js`文件。这主要看你自己的兴趣了。
 
 第二步，在HTML文件中调用`viewport-units-buggyfill`，比如：
+
 ```
 <script>
     window.onload = function () {
@@ -409,7 +459,9 @@ Vue中的`vue-loader`已经集成了[CSS Modules](http://github.com/css-modules/
     }
 </script>
 ```
+
 为了你Demo的时候能获取对应机型相关的参数，我在示例中添加了一段额外的代码，估计会让你有点烦：
+
 ```
 <script>
     window.onload = function () {
@@ -435,7 +487,9 @@ Vue中的`vue-loader`已经集成了[CSS Modules](http://github.com/css-modules/
     }
 </script>
 ```
+
 具体的使用。在你的CSS中，只要使用到了`viewport`的单位（`vw`、`vh`、`vmin`或`vmax` ）地方，需要在样式中添加`content`：
+
 ```
 .my-viewport-units-using-thingie {
     width: 50vmin;
@@ -447,17 +501,21 @@ Vue中的`vue-loader`已经集成了[CSS Modules](http://github.com/css-modules/
     content: 'viewport-units-buggyfill; width: 50vmin; height: 50vmax; top: calc(50vh - 100px); left: calc(50vw - 100px);';
 }
 ```
+
 这可能会令你感到恶心，而且我们不可能每次写vw都去人肉的计算。特别是在我们的这个场景中，咱们使用了`postcss-px-to-viewport`这个插件来转换`vw`，更无法让我们人肉的去添加`content`内容。
 
 这个时候就需要前面提到的`postcss-viewport-units`插件。这个插件将让你无需关注`content`的内容，插件会自动帮你处理。  
 
 [**Viewport Units Buggyfill**](http://github.com/rodneyrehm/viewport-units-buggyfill)还提供了其他的功能。详细的这里不阐述了。但是`content`也会引起一定的副作用。比如`img`和伪元素`::before`(`:before`)或`::after`（`:after`）。在`img`中`content`会引起部分浏览器下，图片不会显示。这个时候需要全局添加：
+
 ```
 img {
     content: normal !important;
 }
 ```
+
 而对于`::after`之类的，就算是里面使用了`vw`单位，Viewport Units Buggyfill对其并不会起作用。比如：
+
 ```
 // 编译前
 .after {
@@ -477,6 +535,7 @@ img {
     background: green;
 }
 ```
+
 这个时候我们需要通过添加**额外的标签**来替代伪元素（这个情景我没有测试到，后面自己亲测一下）。
 
 到了这个时候，你就不需要再担心兼容问题了。
