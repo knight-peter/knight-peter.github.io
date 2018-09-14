@@ -1,7 +1,12 @@
 title: 把微信小程序异步API封装成为Promise，简化异步调用
 author: 徐子玉
-date: 2018-09-14 17:10:00
 tags:
+  - 小程序
+  - es6
+categories:
+  - 前端
+  - 小程序
+date: 2018-09-14 17:10:00
 ---
 > 把微信小程序异步API封装为Promise。用Promise处理异步操作会非常方便。
 
