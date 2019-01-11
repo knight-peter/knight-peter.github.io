@@ -7,6 +7,7 @@ categories:
 date: 2018-10-24 14:44:00
 ---
 > 这个utils.js主要用于layui中  
+<!-- more -->
 
 ```
 /*
@@ -44,6 +45,7 @@ layui.define(['layer', 'table', 'form', 'laydate', 'laytpl', 'admin', 'view'], f
       var getSeconds = this.checkTime(date.getSeconds());
       return getFullYear + "-" + getMonth + "-" + getDate + " " + getHours + ":" + getMinutes + ":" + getSeconds;
     },
+    
     /* 开发中的提示 */
     coding: function (btn) {
       var btn_dom = btn;
