@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-my.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-my.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-my.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="徐子玉的笔记" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="对象的概念其他语言中，对象的两个概念：  类：类是对象的类型模板，例如，定义Student类来表示学生，类本身是一种类型，Student表示学生类型，但不表示任何具体的某个学生； 实例：实例是根据类创建的对象，例如，根据Student类可以创建出xiaoming、xiaohong、xiaojun等多个实例，每个实例表示一个具体的学生，他们全都属于Student类型。     所以，类和实例是大多数">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript面向对象编程">
+<meta property="og:url" content="http://blog.xuziyu.cn/JavaScript面向对象编程.html">
+<meta property="og:site_name" content="徐子玉的笔记">
+<meta property="og:description" content="对象的概念其他语言中，对象的两个概念：  类：类是对象的类型模板，例如，定义Student类来表示学生，类本身是一种类型，Student表示学生类型，但不表示任何具体的某个学生； 实例：实例是根据类创建的对象，例如，根据Student类可以创建出xiaoming、xiaohong、xiaojun等多个实例，每个实例表示一个具体的学生，他们全都属于Student类型。     所以，类和实例是大多数">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/001435287613668a73ab76ccc85411282c1b1370be41636000/l">
+<meta property="og:updated_time" content="2019-03-16T07:34:33.686Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript面向对象编程">
+<meta name="twitter:description" content="对象的概念其他语言中，对象的两个概念：  类：类是对象的类型模板，例如，定义Student类来表示学生，类本身是一种类型，Student表示学生类型，但不表示任何具体的某个学生； 实例：实例是根据类创建的对象，例如，根据Student类可以创建出xiaoming、xiaohong、xiaojun等多个实例，每个实例表示一个具体的学生，他们全都属于Student类型。     所以，类和实例是大多数">
+<meta name="twitter:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/001435287613668a73ab76ccc85411282c1b1370be41636000/l">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.xuziyu.cn/JavaScript面向对象编程.html">
+
+
+
+
+
+
+  <title>JavaScript面向对象编程 | 徐子玉的笔记</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b49e4132be4caecace2fcc27c6e8ec4d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/knight-peter" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">徐子玉的笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Good Good Stady, Day Day Up.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.xuziyu.cn/JavaScript面向对象编程.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="徐子玉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="徐子玉的笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript面向对象编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-13T15:14:00+08:00">
+                2018-02-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/JavaScript面向对象编程.html#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="JavaScript面向对象编程.html" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye" style="margin-right:7px;"></i>阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,145 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </span></div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="对象的概念"><a href="#对象的概念" class="headerlink" title="对象的概念"></a>对象的概念</h2><p>其他语言中，对象的两个概念：</p>
+<ol>
+<li><strong>类</strong>：<strong>类是对象的类型模板</strong>，例如，定义<code>Student</code>类来表示学生，类本身是一种类型，<code>Student</code>表示学生类型，但不表示任何具体的某个学生；</li>
+<li><strong>实例</strong>：<strong>实例是根据类创建的对象</strong>，例如，根据<code>Student</code>类可以创建出<code>xiaoming</code>、<code>xiaohong</code>、<code>xiaojun</code>等多个实例，每个实例表示一个具体的学生，他们全都属于<code>Student</code>类型。   </li>
+</ol>
+<p>所以，类和实例是大多数面向对象编程语言的基本概念。</p>
+<h2 id="javaScript中对象的概念"><a href="#javaScript中对象的概念" class="headerlink" title="javaScript中对象的概念"></a>javaScript中对象的概念</h2><p>javaScript不区分类和实例的概念，而是通过原型（prototype）来实现面向对象编程。<br><a id="more"></a><br>原型是指我们要创建<code>xiaoming</code>这个具体的学生时，我们并没有一个<code>Student</code>类型可用。那怎么办？恰好有这么一个现成的对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var robot = &#123;</span><br><span class="line">    name: &apos;Robot&apos;,</span><br><span class="line">    height: 1.6,</span><br><span class="line">    run: function () &#123;</span><br><span class="line">        console.log(this.name + &apos; is running...&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>我们看这个<code>robot</code>对象有名字，有身高，还会跑，有点像小明，干脆就根据它来“创建”小明得了！<br>于是我们把它改名为<code>Student</code>，然后创建出<code>xiaoming</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var Student = &#123;</span><br><span class="line">    name: &apos;Robot&apos;,</span><br><span class="line">    height: 1.2,</span><br><span class="line">    run: function () &#123;</span><br><span class="line">        console.log(this.name + &apos; is running...&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var xiaoming = &#123;</span><br><span class="line">    name: &apos;小明&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xiaoming.__proto__ = Student;</span><br></pre></td></tr></table></figure></p>
+<p>注意最后一行代码把<code>xiaoming</code>的原型指向了对象<code>Student</code>，看上去<code>xiaoming</code>仿佛是从<code>Student</code>继承下来的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xiaoming.name; // &apos;小明&apos;</span><br><span class="line">xiaoming.run(); // 小明 is running...</span><br></pre></td></tr></table></figure></p>
+<p><code>xiaoming</code>有自己的<code>name</code>属性，但并没有定义<code>run()</code>方法。不过，由于小明是从<code>Student</code>继承而来，只要<code>Student</code>有<code>run()</code>方法，<code>xiaoming</code>也可以调用：<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001435287613668a73ab76ccc85411282c1b1370be41636000/l" alt="image"><br>JavaScript的原型链和Java的Class区别就在，它没有“<strong>Class</strong>”的概念，所有对象都是实例，所谓<strong>继承关系不过是把一个对象的原型指向另一个对象而已</strong>。<br>如果你把<code>xiaoming</code>的原型指向其他对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var Bird = &#123;</span><br><span class="line">    fly: function () &#123;</span><br><span class="line">        console.log(this.name + &apos; is flying...&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xiaoming.__proto__ = Bird;</span><br></pre></td></tr></table></figure></p>
+<p>现在<code>xiaoming</code>已经无法<code>run()</code>了，他已经变成了一只鸟：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xiaoming.fly(); // 小明 is flying...</span><br></pre></td></tr></table></figure></p>
+<p>在JavaScrip代码运行时期，你可以把<code>xiaoming</code>从<code>Student</code>变成<code>Bird</code>，或者变成任何对象。  </p>
+<blockquote>
+<p>请注意，上述代码仅用于演示目的。在编写JavaScript代码时，不要直接用<code>obj.__proto__</code>去改变一个对象的原型，并且，低版本的IE也无法使用<code>__proto__</code>。<code>Object.create()</code>方法可以传入一个原型对象，并创建一个基于该原型的新对象，但是新对象什么属性都没有，因此，我们可以编写一个函数来创建<code>xiaoming</code>：  </p>
+</blockquote>
+<p>var Student = {// 原型对象<br>    name: ‘Robot’,<br>    height: 1.2,<br>    run: function () {<br>        console.log(this.name + ‘ is running…’);<br>    }<br>};</p>
+<p>function createStudent(name) {<br>    // 基于Student原型创建一个新对象:<br>    var s = Object.create(Student);<br>    // 初始化新对象:<br>    s.name = name;<br>    return s;<br>}</p>
+<p>var xiaoming = createStudent(‘小明’);<br>xiaoming.run(); // 小明 is running…<br>xiaoming.<strong>proto</strong> === Student; // true</p>
+<p><strong>这是创建原型继承的一种方法</strong>  </p>
+<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><blockquote>
+<p>JavaScript对每个创建的对象都会设置一个原型，指向它的原型对象。  </p>
+</blockquote>
+<p>当我们用<code>obj.xxx</code>访问一个对象的属性时，JavaScript引擎先在<strong>当前对象</strong>上查找该属性，如果没有找到，就到<strong>其原型对象</strong>上找，如果还没有找到，就一直上溯到<b><code>Object.prototype</code>对象</b>，最后，如果还没有找到，就只能返回<code>undefined</code>。<br>其原型链是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr ----&gt; Array.prototype ----&gt; Object.prototype ----&gt; null</span><br><span class="line">```  </span><br><span class="line">`Array.prototype`定义了`indexOf()`、`shift()`等方法，因此你可以在所有的`Array`对象上直接调用这些方法。  </span><br><span class="line">当我们创建一个函数时：</span><br></pre></td></tr></table></figure></p>
+<p>function foo() {<br>    return 0;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数也是一个对象，它的原型链是：</span><br></pre></td></tr></table></figure></p>
+<p>foo —-&gt; Function.prototype —-&gt; Object.prototype —-&gt; null<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">由于`Function.prototype`定义了`apply()`等方法，因此，所有函数都可以调用`apply()`方法。  </span><br><span class="line">&gt; 很容易想到，如果原型链很长，那么访问一个对象的属性就会因为花更多的时间查找而变得更慢，因此要注意不要把原型链搞得太长。  </span><br><span class="line">### 构造函数</span><br><span class="line">除了直接用`&#123; ... &#125;`创建一个对象外，JavaScript还可以用一种构造函数的方法来创建对象。它的用法是，先定义一个构造函数：</span><br></pre></td></tr></table></figure></p>
+<p>function Student(name) {<br>    this.name = name;<br>    this.hello = function () {<br>        alert(‘Hello, ‘ + this.name + ‘!’);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">你会问，咦，这不是一个普通函数吗？  </span><br><span class="line">这确实是一个普通函数，但是在JavaScript中，可以用&lt;b&gt;关键字`new`&lt;/b&gt;来调用这个函数，并返回一个对象：</span><br></pre></td></tr></table></figure></p>
+<p>var xiaoming = new Student(‘小明’);<br>xiaoming.name; // ‘小明’<br>xiaoming.hello(); // Hello, 小明!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 注意，如果不写`new`，这就是一个普通函数，它返回`undefined`。但是，**如果写了`new`，它就变成了一个构造函数，它绑定的this指向新创建的对象，并默认返回`this`，也就是说，不需要在最后写`return this;`。**  </span><br><span class="line"></span><br><span class="line">新创建的`xiaoming`的原型链是：</span><br></pre></td></tr></table></figure></p>
+<p>xiaoming —-&gt; Student.prototype —-&gt; Object.prototype —-&gt; null<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">也就是说，`xiaoming`的原型指向函数`Student`的原型。如果你又创建了`xiaohong`、`xiaojun`，那么这些对象的原型与`xiaoming`是一样的：</span><br></pre></td></tr></table></figure></p>
+<p>xiaoming ↘<br>xiaohong -→ Student.prototype —-&gt; Object.prototype —-&gt; null<br>xiaojun  ↗<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用`new Student()`创建的对象还从原型上获得了一个`constructor`属性，它指向函数`Student`本身：</span><br></pre></td></tr></table></figure></p>
+<p>xiaoming.constructor === Student.prototype.constructor; // true<br>Student.prototype.constructor === Student; // true</p>
+<p>Object.getPrototypeOf(xiaoming) === Student.prototype; // true</p>
+<p>xiaoming instanceof Student; // true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">看晕了吧？用一张图来表示这些乱七八糟的关系就是：</span><br><span class="line">![image](https://cdn.liaoxuefeng.com/cdn/files/attachments/00143529922671163eebb527bc14547ac11363bf186557d000/l)</span><br><span class="line">`Student`创建了一个原型对象，`Student`通过属性`prototype`指向自身的原型对象，`xiaoming`、`xiaohong`也一样指向这个原型对象。这个原型对象自己有个属性`constructor`，可以指向创建自己的`Student`函数本身。</span><br><span class="line">&gt; 红色箭头是原型链。**注意，`Student.prototype`指向的对象就是`xiaoming`、`xiaohong`的原型对象，这个原型对象自己还有个属性`constructor`，指向`Student`函数本身**  </span><br><span class="line"></span><br><span class="line">&gt; 另外，函数`Student`恰好有个属性`prototype`指向`xiaoming`、`xiaohong`的原型对象，但是`xiaoming`、`xiaohong`这些对象可没有prototype这个属性，不过可以用`__proto__`这个非标准用法来查看。 </span><br><span class="line"></span><br><span class="line">不过还有一个小问题，注意观察：</span><br></pre></td></tr></table></figure></p>
+<p>xiaoming.name; // ‘小明’<br>xiaohong.name; // ‘小红’<br>xiaoming.hello; // function: Student.hello()<br>xiaohong.hello; // function: Student.hello()<br>xiaoming.hello === xiaohong.hello; // false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">`xiaoming`和`xiaohong`各自的`name`不同，这是对的，否则我们无法区分谁是谁了。  </span><br><span class="line">`xiaoming`和`xiaohong`各自的`hello`是一个函数，但它们是两个不同的函数，虽然函数名称和代码都是相同的！  </span><br><span class="line">如果我们通过`new Student()`创建了很多对象，这些对象的`hello`函数实际上只需要共享同一个函数就可以了，这样可以节省很多内存。  </span><br><span class="line">要让创建的对象共享一个`hello`函数，根据对象的属性查找原则，我们只要把`hello`函数移动到`xiaoming`、`xiaohong`这些对象共同的原型上就可以了，也就是`Student.prototype`：  </span><br><span class="line">![image](https://cdn.liaoxuefeng.com/cdn/files/attachments/001435299854512faf32868f60348be878982909b5a5d04000/l)  </span><br><span class="line">修改代码如下：</span><br></pre></td></tr></table></figure></p>
+<p>function Student(name) {<br>    this.name = name;<br>}</p>
+<p>Student.prototype.hello = function () {<br>    alert(‘Hello, ‘ + this.name + ‘!’);<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用`new`创建基于原型的JavaScript的对象就是这么简单！  </span><br><span class="line">### 忘记写new怎么办</span><br><span class="line">如果一个函数被定义为用于创建对象的构造函数，但是调用时忘记了写`new`怎么办？  </span><br><span class="line">在strict模式下，`this.name = name`将报错，因为`this`绑定为`undefined`，在非strict模式下，`this.name = name`不报错，因为`this`绑定为`window`，于是无意间创建了全局变量`name`，并且返回`undefined`，这个结果更糟糕。  </span><br><span class="line">所以，调用构造函数千万不要忘记写`new`。为了区分普通函数和构造函数，按照约定，构造函数首字母应当大写，而普通函数首字母应当小写，这样，一些语法检查工具如*jslint*将可以帮你检测到漏写的`new`。  </span><br><span class="line">最后，我们还可以编写一个`createStudent()`函数，在内部封装所有的new操作。一个常用的编程模式像这样：</span><br></pre></td></tr></table></figure></p>
+<p>function Student(props) {<br>    this.name = props.name || ‘匿名’; // 默认值为’匿名’<br>    this.grade = props.grade || 1; // 默认值为1<br>}</p>
+<p>Student.prototype.hello = function () {<br>    alert(‘Hello, ‘ + this.name + ‘!’);<br>};</p>
+<p>function createStudent(props) {<br>    return new Student(props || {})<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这个`createStudent()`函数有几个巨大的优点：一是不需要`new`来调用，二是参数非常灵活，可以不传，也可以这么传：  </span><br><span class="line">*props参数传的是对象*</span><br></pre></td></tr></table></figure></p>
+<p>var xiaoming = createStudent({<br>    name: ‘小明’<br>});</p>
+<p>xiaoming.grade; // 1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line">如果创建的对象有很多属性，我们只需要传递需要的某些属性，剩下的属性可以用默认值。由于参数是一个**Object**，我们无需记忆参数的顺序。如果恰好从`JSON`拿到了一个对象，就可以直接创建出`xiaoming`。</span><br><span class="line">#### 练习</span><br><span class="line">请利用构造函数定义`Cat`，并让所有的`Cat`对象有一个`name`属性，并共享一个方法`say()`，返回字符串`&apos;Hello, xxx!&apos;`：</span><br><span class="line"></span><br><span class="line">    &apos;use strict&apos;;</span><br><span class="line">    function Cat(name)&#123;</span><br><span class="line">        this.name=name||&apos;匿名&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    Cat.prototype.say=function()&#123;</span><br><span class="line">        return &apos;Hello, &apos;+this.name+&apos;!&apos;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&gt; 段落总结：如果创建的对象不可以共享的属性例如`name`要放在`Student`函数本身里,这样每次创建新对象都会通过指向的原型对象去复制函数本身的`name`,虽然相像但不是是同一个东西；  </span><br><span class="line">如果是可以共享的属性如`hello`，放在`Student`创建的原型里，每次使用的都是同一个属性。  </span><br><span class="line">## 原型继承</span><br><span class="line">在传统的基于Class的语言如Java、C++中，继承的本质是扩展一个已有的Class，并生成新的Subclass。  </span><br><span class="line">由于这类语言严格区分类和实例，**继承实际上是类型的扩展**。但是，**JavaScript**由于采用**原型继承**，我们无法直接扩展一个Class，**因为根本不存在Class这种类型**。  </span><br><span class="line">但是办法还是有的。我们先回顾`Student`构造函数：</span><br><span class="line"></span><br><span class="line">    function Student(props) &#123;</span><br><span class="line">        this.name = props.name || &apos;Unnamed&apos;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Student.prototype.hello = function () &#123;</span><br><span class="line">        alert(&apos;Hello, &apos; + this.name + &apos;!&apos;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">以及`Student`的原型链：</span><br><span class="line">![Student的原型链](https://cdn.liaoxuefeng.com/cdn/files/attachments/001439872136313496e60e07ed143bda40a0200b12d8cc3000/l)  </span><br><span class="line">现在，我们要基于`Student`扩展出`PrimaryStudent`，可以先定义出`PrimaryStudent`：  </span><br><span class="line"></span><br><span class="line">    function PrimaryStudent(props) &#123;</span><br><span class="line">        // 调用Student构造函数，绑定this变量:</span><br><span class="line">        Student.call(this, props);</span><br><span class="line">        this.grade = props.grade || 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">但是，调用了`Student`构造函数不等于继承了`Student`，`PrimaryStudent`创建的对象的原型是：  </span><br><span class="line"></span><br><span class="line">    new PrimaryStudent() ----&gt; PrimaryStudent.prototype ----&gt; Object.prototype ----&gt; null</span><br><span class="line"></span><br><span class="line">必须想办法把原型链修改为：</span><br><span class="line"></span><br><span class="line">    new PrimaryStudent() ----&gt; PrimaryStudent.prototype ----&gt; Student.prototype ----&gt; Object.prototype ----&gt; null</span><br><span class="line"></span><br><span class="line">这样，原型链对了，继承关系就对了。新的基于`PrimaryStudent`创建的对象不但能调用`PrimaryStudent.prototype`定义的方法，也可以调用`Student.prototype`定义的方法。  </span><br><span class="line"></span><br><span class="line">如果你想用最简单粗暴的方法这么干：</span><br><span class="line"></span><br><span class="line">PrimaryStudent.prototype = Student.prototype;</span><br><span class="line"></span><br><span class="line">是不行的！如果这样的话，`PrimaryStudent`和`Student`共享一个原型对象，那还要定义`PrimaryStudent`干啥？</span><br><span class="line"></span><br><span class="line">我们必须借助一个中间对象来实现正确的原型链，这个中间对象的原型要指向`Student.prototype`。为了实现这一点，参考道爷（就是发明JSON的那个道格拉斯）的代码，中间对象可以用一个空函数F来实现：  </span><br><span class="line"></span><br><span class="line">    // PrimaryStudent构造函数:</span><br><span class="line">    function PrimaryStudent(props) &#123;</span><br><span class="line">        Student.call(this, props);</span><br><span class="line">        this.grade = props.grade || 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 空函数F:</span><br><span class="line">    function F() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 把F的原型指向Student.prototype:</span><br><span class="line">    F.prototype = Student.prototype;</span><br><span class="line"></span><br><span class="line">    // 把PrimaryStudent的原型指向一个新的F对象，F对象的原型正好指向Student.prototype:</span><br><span class="line">    PrimaryStudent.prototype = new F();</span><br><span class="line"></span><br><span class="line">    // 把PrimaryStudent原型的构造函数修复为PrimaryStudent:</span><br><span class="line">    PrimaryStudent.prototype.constructor = PrimaryStudent;</span><br><span class="line"></span><br><span class="line">    // 继续在PrimaryStudent原型（就是new F()对象）上定义方法：</span><br><span class="line">    PrimaryStudent.prototype.getGrade = function () &#123;</span><br><span class="line">        return this.grade;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    // 创建xiaoming:</span><br><span class="line">    var xiaoming = new PrimaryStudent(&#123;</span><br><span class="line">        name: &apos;小明&apos;,</span><br><span class="line">        grade: 2</span><br><span class="line">    &#125;);</span><br><span class="line">    xiaoming.name; // &apos;小明&apos;</span><br><span class="line">    xiaoming.grade; // 2</span><br><span class="line"></span><br><span class="line">    // 验证原型:</span><br><span class="line">    xiaoming.__proto__ === PrimaryStudent.prototype; // true</span><br><span class="line">    xiaoming.__proto__.__proto__ === Student.prototype; // true</span><br><span class="line"></span><br><span class="line">    // 验证继承关系:</span><br><span class="line">    xiaoming instanceof PrimaryStudent; // true</span><br><span class="line">    xiaoming instanceof Student; // true</span><br><span class="line"></span><br><span class="line">用一张图来表示新的原型链：</span><br><span class="line">![新的原型链](https://cdn.liaoxuefeng.com/cdn/files/attachments/001439872160923ca15925ec79f4692a98404ddb2ed5503000/l)</span><br><span class="line">注意，函数`F`仅用于桥接，我们仅创建了一个`new F()`实例，而且，没有改变原有的`Student`定义的原型链。</span><br><span class="line"></span><br><span class="line">如果把继承这个动作用一个`inherits()`函数封装起来，还可以隐藏`F`的定义，并简化代码：</span><br><span class="line"></span><br><span class="line">    function inherits(Child, Parent) &#123;</span><br><span class="line">        var F = function () &#123;&#125;;</span><br><span class="line">        F.prototype = Parent.prototype;</span><br><span class="line">        Child.prototype = new F();</span><br><span class="line">        Child.prototype.constructor = Child;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    这个`inherits()`函数可以复用： </span><br><span class="line"></span><br><span class="line">    function Student(props) &#123;</span><br><span class="line">        this.name = props.name || &apos;Unnamed&apos;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Student.prototype.hello = function () &#123;</span><br><span class="line">        alert(&apos;Hello, &apos; + this.name + &apos;!&apos;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function PrimaryStudent(props) &#123;</span><br><span class="line">        Student.call(this, props);</span><br><span class="line">        this.grade = props.grade || 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 实现原型继承链:</span><br><span class="line">    inherits(PrimaryStudent, Student);</span><br><span class="line"></span><br><span class="line">    // 绑定其他方法到PrimaryStudent原型:</span><br><span class="line">    PrimaryStudent.prototype.getGrade = function () &#123;</span><br><span class="line">        return this.grade;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">#### 小结</span><br><span class="line">JavaScript的原型继承实现方式就是：</span><br><span class="line">1. 定义新的构造函数，并在内部用`call()`调用希望“继承”的构造函数，并绑定`this`；</span><br><span class="line">2. 借助中间函数F实现原型链继承，最好通过封装的`inherits`函数完成；</span><br><span class="line">3. 继续在新的构造函数的原型上定义新方法。</span><br><span class="line">## class继承  </span><br><span class="line">&gt; 在上面的章节中我们看到了JavaScript的对象模型是基于原型实现的，特点是简单，缺点是理解起来比传统的类－实例模型要困难，最大的缺点是继承的实现需要编写大量代码，并且需要正确实现原型链。  </span><br><span class="line"></span><br><span class="line">有没有更简单的写法？有！</span><br><span class="line"></span><br><span class="line">新的关键字`class`从ES6开始正式被引入到JavaScript中。`class`的目的就是让定义类更简单。</span><br><span class="line"></span><br><span class="line">我们先回顾用函数实现`Student`的方法：</span><br><span class="line"></span><br><span class="line">    function Student(name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Student.prototype.hello = function () &#123;</span><br><span class="line">        alert(&apos;Hello, &apos; + this.name + &apos;!&apos;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">如果用新的`class`关键字来编写`Student`，可以这样写：  </span><br><span class="line"></span><br><span class="line">    class Student &#123;</span><br><span class="line">        constructor(name) &#123;</span><br><span class="line">            this.name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        hello() &#123;</span><br><span class="line">            alert(&apos;Hello, &apos; + this.name + &apos;!&apos;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">比较一下就可以发现，`class`的定义包含了构造函数`constructor`和定义在原型对象上的函数`hello()`（*注意没有function关键字*），这样就避免了`Student.prototype.hello = function () &#123;...&#125;`这样分散的代码。  </span><br><span class="line">最后，创建一个`Student`对象代码和前面章节完全一样：</span><br></pre></td></tr></table></figure></p>
+<p>var xiaoming = new Student(‘小明’);<br>xiaoming.hello();<br><code>`</code></p>
+<h3 id="class继承"><a href="#class继承" class="headerlink" title="class继承"></a>class继承</h3><p>用<code>class</code>定义对象的另一个巨大的好处是继承更方便了。想一想我们从<code>Student</code>派生一个<code>PrimaryStudent</code>需要编写的代码量。现在，原型继承的中间对象，原型对象的构造函数等等都不需要考虑了，直接通过<code>extends</code>来实现：  </p>
+<pre><code>class PrimaryStudent extends Student {
+    constructor(name, grade) {
+        super(name); // 记得用super调用父类的构造方法!
+        this.grade = grade;
+    }
+
+    myGrade() {
+        alert(&apos;I am at grade &apos; + this.grade);
+    }
+}
+</code></pre><blockquote>
+<p>注意<code>PrimaryStudent</code>的定义也是<code>class</code>关键字实现的，而<code>extends</code>则表示原型链对象来自<code>Student</code>。子类的构造函数可能会与父类不太相同，例如，<code>PrimaryStudent</code>需要<code>name</code>和<code>grade</code>两个参数，并且需要通过<code>super(name)</code>来调用父类的构造函数，否则父类的<code>name</code>属性无法正常初始化。</p>
+</blockquote>
+<p><code>PrimaryStudent</code>已经自动获得了父类<code>Student</code>的<code>hello</code>方法，我们又在子类中定义了新的<code>myGrade</code>方法。  </p>
+<p>ES6引入的<code>class</code>和原有的<code>JavaScript</code>原型继承有什么区别呢？实际上它们没有任何区别，<code>class</code>的作用就是让<code>JavaScript</code>引擎去实现原来需要我们自己编写的原型链代码。简而言之，用class的好处就是极大地简化了原型链代码。  </p>
+<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><p>请利用<code>class</code>重新定义<code>Cat</code>，并让它从已有的<code>Animal</code>继承，然后新增一个方法<code>say()</code>，返回字符串<code>&#39;Hello, xxx!&#39;</code>：</p>
+<pre><code>&apos;use strict&apos;;
+
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+}
+class Cat extends Animal{
+  constructor(name){
+    super(name);
+  }
+  say(){
+    return `Hello, ${this.name}!`;
+  }
+}
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>无论是ES5还是ES6还都是使用<code>prototype</code>原型继承的方式来模拟其他语言中类和实例的方式来实现原型继承。<br><code>class</code>只是把代码抽象一下，从语言层面看上去跟其他语言差不多了，背后并没有改变。</p>
+<p>不过日常工作没有关系，尽情使用class来实现面向对象编程好了。背后的处理交给工程化工具。</p>
+<blockquote>
+<p>基本照抄廖雪峰老师的文章，插入了一些自己的感想。<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499763408e24c210985d34edcabbca944b4239e20000" target="_blank" rel="noopener">原文地址</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="徐子玉 wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎您扫一扫上面的微信二维码，订阅我的公众号！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward.gif" alt="徐子玉 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay-reward.gif" alt="徐子玉 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" <i class="fa fa-tag"> javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/时间的处理.html" rel="next" title="时间的处理">
+                <i class="fa fa-chevron-left"></i> 时间的处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/vue小白学习笔记0--购物车.html" rel="prev" title="vue小白学习笔记0--购物车">
+                vue小白学习笔记0--购物车 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="徐子玉">
+            
+              <p class="site-author-name" itemprop="name">徐子玉</p>
+              <p class="site-description motion-element" itemprop="description">喜欢跑步的吃货才是一个好程序猿</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/knight-peter" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xuqipeter@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.imooc.com" title="慕课网" target="_blank" rel="external nofollow">慕课网</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站" target="_blank" rel="external nofollow">廖雪峰的官方网站</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的概念"><span class="nav-number">1.</span> <span class="nav-text">对象的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javaScript中对象的概念"><span class="nav-number">2.</span> <span class="nav-text">javaScript中对象的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number">3.</span> <span class="nav-text">创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class继承"><span class="nav-number">3.1.</span> <span class="nav-text">class继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#练习"><span class="nav-number">3.1.1.</span> <span class="nav-text">练习</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">徐子玉</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">NexT.Mist</a> v5.1.4</div>
+
+-->
+
+<p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytsHS66l';
+      var conf = 'e2a8af2f881183b9aa2cdfcaa43bf747';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
